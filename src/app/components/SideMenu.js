@@ -1,5 +1,5 @@
 "use client"
-import { DM_Sans } from '@next/font/google';
+import { DM_Sans } from 'next/font/google';
 import { usePathname } from 'next/navigation'
 import { LayoutDashboard, Presentation,UserRound,Settings,ReceiptText } from 'lucide-react';
 import Link from 'next/link';
