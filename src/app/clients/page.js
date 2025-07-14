@@ -1,6 +1,4 @@
-"user-client"
-
-
+"use client"
 function page() {
   return (
     <div>

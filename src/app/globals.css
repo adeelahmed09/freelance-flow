@@ -1,2 +1,14 @@
 @import "tailwindcss";
 
+.side-active::before{
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 5px;
+    height: 100%;
+    background: #9271FC;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
