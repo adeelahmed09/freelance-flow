@@ -14,9 +14,9 @@ function NavLeft() {
 
   if(!loggedIn){
     return (
-    <div className={`flex justify-center gap-2 ${dmSans.className}`}>
-      <Link className="bg-[#8F6EFB] hover:bg-[#3A265B] hover:shadow-lg transition text-lg rounded-2xl text-white px-3 py-2" href="/signup">Sign Up</Link>
-      <Link className="bg-[#8F6EFB] hover:bg-[#3A265B] hover:shadow-lg transition text-lg rounded-2xl text-white px-3 py-2" href="/login">Log In</Link>
+    <div className={`flex justify-center items-center gap-2 ${dmSans.className}`}>
+      <Link className="bg-[#8F6EFB] hover:bg-[#3A265B] hover:shadow-lg transition lg:text-lg rounded-2xl sm:text-md text-white px-3 py-2" href="/signup">Sign Up</Link>
+      <Link className="bg-[#8F6EFB] hover:bg-[#3A265B] hover:shadow-lg transition lg:text-lg rounded-2xl sm:text-md text-white px-3 py-2" href="/login">Log In</Link>
     </div>
   )
   }

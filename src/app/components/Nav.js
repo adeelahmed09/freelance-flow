@@ -7,10 +7,10 @@ function Nav() {
       <div className="w-full rounded-2xl flex justify-between items-center px-5 h-full shadow-lg bg-[#F7F7F7]">
         <div
         id="search-bar"
-        className="flex items-center gap-1.5 justify-center"
+        className="flex items-center gap-1 justify-center"
         >
-          <input type="text" placeholder="Search...." className="w-[300px] shadow-lg h-[50px] px-5 py-1 bg-white rounded-full outline-none border-gray-200 border" name="search-input" id="search-input" />
-          <button className="bg-[#8F6EFB] px-3 py-2.5 rounded-full">
+          <input type="text" placeholder="Search...." className="lg:w-[300px] sm:w-[200px] shadow-lg lg:h-[50px] sm:h-[40px] lg:px-5 sm:px-3 py-0.5 bg-white rounded-full outline-none border-gray-200 border" name="search-input" id="search-input" />
+          <button className="bg-[#8F6EFB] px-2 py-1.5 rounded-full">
             <Search color="#f7f7f7" size={24} />
           </button>
         </div>
