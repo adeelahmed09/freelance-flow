@@ -1,8 +1,8 @@
 "use client"
-import { DM_Sans } from 'next/font/google';
 import { usePathname } from 'next/navigation'
 import { LayoutDashboard, Presentation,UserRound,Settings,ReceiptText } from 'lucide-react';
 import Link from 'next/link';
+import { DM_Sans } from 'next/font/google';
 
 
 const dmSans = DM_Sans({
@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 function SideMenu() {
   const pathname = usePathname()
   return (
-    <div className="lg:w-[20vw] px-1 sm:w-[25%] bg-[#fef7ff] h-[99vh] my-1 mx-1 fixed rounded-2xl left-0">
+    <div className="lg:w-[20vw] px-1 sm:w-[25vw] shadow-lg bg-[#F7F7F7] h-[99vh] my-2 mx-1 fixed sm:flex flex-col hidden rounded-2xl left-0">
       <div className="logo">
         <img src="/fullLogo.png" className="h-[130px] w-full object-cover object-center" alt="" />
       </div>
@@ -23,7 +23,7 @@ function SideMenu() {
         <h3 className={`${dmSans.className} text-[#392558] text-sm`}>
           Menue
         </h3>
-        <ul className={`flex flex-col text-lg text-[#757575] font-normal pt-3 gap-2 pl-2 ${dmSans.className}`}>
+        <ul className={`flex flex-col text-lg select-none text-[#757575] font-normal pt-3 gap-2 pl-2 ${dmSans.className}`}>
           <li className={`${pathname==="/"?"side-active visible":""}  relative`}>
             <Link
               href={"/"}

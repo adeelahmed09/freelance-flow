@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`w-screen`}
+        className={`overflow-x-hidden`}
       >
         <SideMenu/>
         {children}
