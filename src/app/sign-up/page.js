@@ -3,18 +3,17 @@ import Head from "next/head"
 import Nav from "../components/Nav"
 import { Urbanist } from 'next/font/google';
 import InputText from "../components/sign-up/InputText";
-import { useState } from "react";
+import React,{ useState } from "react";
 import Loader from "../components/Loader";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
 const urbanist = Urbanist({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
-function page() {
+function Page() {
   const [formValue, setformValue] = useState({
     username: "",
     email: "",
@@ -131,4 +130,5 @@ function page() {
   )
 }
 
-export default page
+export default Page
+
