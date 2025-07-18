@@ -3,7 +3,7 @@ import NavLeft from "./NavLeft"
 
 function Nav() {
   return (
-    <div className=" w-full lg:h-[120px] sm:h-[90px] ">
+    <div className=" w-full lg:h-[20%] sm:h-[90px] ">
       <div className="w-full rounded-2xl flex justify-between items-center px-5 h-full shadow-lg bg-[#F7F7F7]">
         <div
         id="search-bar"

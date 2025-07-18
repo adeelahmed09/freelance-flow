@@ -8,24 +8,29 @@ import { v2 as cloudinary } from 'cloudinary';
 export async function imageUploader(file) {
     try {
         if (!file) {
-            return NextResponse.json({ error: "File not Found" }, { status: 400 })
+            const result = {
+                error: "File not Found",
+                success:false,
+            }
+            return result
         }
         const bites = await file.arrayBuffer();
         const buffer = Buffer.from(bites)
 
         const result = await new Promise((resolve ,reject)=>{
             const upload = cloudinary.uploader.upload_stream(
-                (error,resutl)=>{
+                (error,result)=>{
                     if(error) reject(error);
-                    else resolve(resutl)
+                    else resolve(result)
                 }
             )
             upload.end(buffer)
         })
+        console.log(result); // Delete (Only for testing)
         return result.url;
     } catch (error) {
         console.log("Upload Image Fieled :",error);
-        const result = 0
-        return {result,error}
+        const result = error
+        return {result}
     }
 }
