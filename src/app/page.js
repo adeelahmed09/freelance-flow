@@ -15,7 +15,7 @@ function page() {
     </Head>
     <div className="lg:ml-[20vw] sm:ml-[25vw] px-5 py-2 lg:w-[80vw] sm:w-[75vw] h-screen">
       <Nav/>
-      <div className="w-full p-5 h-screen mt-4 rounded-2xl shadow-xl bg-[#F7F7F7]">
+      <div className="w-full p-5 min-h-screen mt-4  rounded-2xl shadow-xl bg-[#F7F7F7]">
         <UpperTextOfPages PageName={"DashBoard"} PageButtonText={"Add Project"} PageLink={"/add-project"}/>
         <FirstGrid/>
       </div>

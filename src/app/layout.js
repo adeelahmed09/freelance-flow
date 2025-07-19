@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import SideMenu from "./components/SideMenu";
 import "./globals.css";
+import MobileNav from "./components/MobileNav";
 
 
 export const metadata = {
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={` h-screen`}
+        className={` h-screen overflow-x-hidden`}
       >
         <ToastContainer
           position="top-right"
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
           pauseOnHover
           theme="light"
         />
+        <MobileNav/>
         <SideMenu />
         {children}
       </body>
