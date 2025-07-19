@@ -32,7 +32,7 @@ function MobileNav() {
     <div className='w-full h-[60px] sm:hidden flex mt-5 justify-center items-center px-5 '>
       <div className='w-full h-full px-3 flex justify-between rounded-2xl  items-center bg-[#F7F7F7]'>
         <div>
-        <Image src={"/fulllogo.png"} alt='logo' width={170} height={120} className='object-center object-cover  '/>
+        <Image src={"https://res.cloudinary.com/dd0ilxbb6/image/upload/v1752938826/fullLogo_uw8tfh.png"} alt='logo' width={170} height={120} className='object-center object-cover  '/>
       </div>
       <div>
         <Menu ref={menuOpenningButton} onClick={menuOpeningHandler} color='#906FFC' />
