@@ -3,8 +3,10 @@ import { usePathname } from 'next/navigation'
 import { LayoutDashboard, Presentation,UserRound,Settings,ReceiptText } from 'lucide-react';
 import Link from 'next/link';
 import { DM_Sans } from 'next/font/google';
-
-
+import { useSelector, useDispatch } from 'react-redux'
+import { useSession } from 'next-auth/react';
+import { useEffect } from 'react';
+import { removeUser,addUser } from '@/store/UserSlice';
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -13,7 +15,26 @@ const dmSans = DM_Sans({
 
 
 function SideMenu() {
+  const dispatch = useDispatch()
   const pathname = usePathname()
+  const { data: session, status } = useSession();
+  const user = useSelector((state)=>state.user)
+  
+  useEffect(()=>{
+     if (status === "authenticated"){
+      dispatch(addUser({
+        username :  session.user.username,
+        name: session.user.name,
+        email:session.user.email,
+        _id: session.user._id
+      }
+      ))
+     }
+     else{
+      dispatch(removeUser())
+     }
+  },[status])
+  useEffect(()=>{console.log(user)},[user])
   return (
     <div className="lg:w-[20vw] px-1 sm:w-[25vw] shadow-lg bg-[#F7F7F7] h-[99vh] my-2 mx-1 fixed sm:flex flex-col hidden rounded-2xl left-0">
       <div className="logo">

@@ -1,11 +1,12 @@
-"user-client"
+"use client"
 import Head from "next/head"
 import Nav from "./components/Nav"
 import UpperTextOfPages from "./components/UpperTextOfPages"
 import FirstGrid from "./components/dashboard/FirstGrid"
-
+import { useSelector, useDispatch } from 'react-redux'
 
 function page() {
+  const logged = useSelector((state)=>state.user.logged)
   return (
     <>
     <Head>
