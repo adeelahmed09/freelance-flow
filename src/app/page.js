@@ -3,9 +3,9 @@ import Head from "next/head"
 import Nav from "./components/Nav"
 import UpperTextOfPages from "./components/UpperTextOfPages"
 import FirstGrid from "./components/dashboard/FirstGrid"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-function page() {
+function Page() {
   const logged = useSelector((state)=>state.user.logged)
   return (
     <>
@@ -26,4 +26,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
