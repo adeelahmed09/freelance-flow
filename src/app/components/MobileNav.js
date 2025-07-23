@@ -50,7 +50,7 @@ function MobileNav() {
         <Link href={"/invoice"}>Invoice</Link>
         <Link href={"/setting"}>Profile Setting</Link>
         <div style={{display: `${logged?"none":"flex"}`}} className={`flex text-md text-white gap-2`}>
-          <Link href={"#"} className='bg-[#906FFC] px-3 py-1 text-lg font-medium rounded-lg '>Log In</Link>
+          <Link href={"/log-in"} className='bg-[#906FFC] px-3 py-1 text-lg font-medium rounded-lg '>Log In</Link>
           <Link href={"/sign-up"} className='bg-[#906FFC] px-3 py-1 text-lg font-medium rounded-lg'>Sign Up</Link>
         </div>
       </div>
