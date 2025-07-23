@@ -11,7 +11,6 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 function Cards({backGround,url,Heading,textColor,dataNumber}) {
-    console.log(textColor);
     return (
     <Link href={url} className={`h-[150px] hover:shadow-xl transition px-5 py-4 w-full flex flex-col justify-between rounded-2xl ${backGround?`bg-[${backGround}]`:"bg-white"} `}>
       <div className='flex justify-between items-center'>

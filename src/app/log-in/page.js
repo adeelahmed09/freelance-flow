@@ -1,5 +1,5 @@
 "use client"
-
+import { signIn } from 'next-auth/react'
 import Head from "next/head";
 import Nav from "../components/Nav";
 import { useRouter } from "next/navigation";
@@ -58,7 +58,42 @@ function Page() {
             })
             return
         }
+        const result = await signIn("credentials", {
+            redirect: false,
+            username: formValue.username,
+            password: formValue.password,
+        });
+        if (result?.error) {
+            setLoading(false)
+            toast.error(result.error, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            setformValue({
+                username: "",
+                password: "",
+            })
+            return
+        }
+        toast.success('Successfully Loged In', {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                });
         setLoading(false)
+        router.push("/")
+        
     }
     return (
         <>
