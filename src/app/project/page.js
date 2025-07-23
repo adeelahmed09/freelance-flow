@@ -2,7 +2,7 @@
 import Head from "next/head"
 import Nav from "../components/Nav"
 
-function page() {
+function Page() {
   return (
     <>
     <Head>
@@ -20,4 +20,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
