@@ -6,8 +6,9 @@ import { useState , useEffect ,useRef} from 'react';
 import Image from 'next/image';
 import {  Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 function MobileNav() {
-  const [logged,setLogged] = useState(false);
+  const logged = useSelector((state)=>state.user.logged)
   const menu = useRef(null)
   const menuOpenningButton = useRef(null)
   const menuClosingButton = useRef(null)

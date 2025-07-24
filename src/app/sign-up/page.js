@@ -62,7 +62,7 @@ function Page() {
     axios.post("/api/sign-up", formValue)
       .then((res) => {
         setLoading(false)
-        toast.success('Successfully Signed Up', {
+        toast.success('Successfully Update Profile!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

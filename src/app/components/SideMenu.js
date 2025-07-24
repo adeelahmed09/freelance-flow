@@ -34,7 +34,6 @@ function SideMenu() {
       dispatch(removeUser())
      }
   },[status])
-  useEffect(()=>{console.log(user)},[user])
   return (
     <div className="lg:w-[20vw] px-1 sm:w-[25vw] shadow-lg bg-[#F7F7F7] h-[99vh] my-2 mx-1 fixed sm:flex flex-col hidden rounded-2xl left-0">
       <div className="logo">
