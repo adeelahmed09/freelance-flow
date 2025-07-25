@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import { removeUser,addUser } from '@/store/UserSlice';
+import axios from 'axios';
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -20,15 +21,28 @@ function SideMenu() {
   const { data: session, status } = useSession();
   const user = useSelector((state)=>state.user)
   
+  const GetUser = async(id)=>{
+    axios.post("/api/get-user",{id})
+    .then((res)=>{
+      const userData = res.data.user
+      console.log(userData._id);
+      dispatch(addUser({
+        username:userData.username,
+        email:userData.email,
+        name:userData.name,
+        _id:userData._id
+      }))
+    })
+    .catch((err)=>{
+      alert(err?.response?.data?.message)
+      dispatch(removeUser())
+      console.log(err);
+    })
+  }
+
   useEffect(()=>{
      if (status === "authenticated"){
-      dispatch(addUser({
-        username :  session.user.username,
-        name: session.user.name,
-        email:session.user.email,
-        _id: session.user._id
-      }
-      ))
+      GetUser(session.user._id)
      }
      else{
       dispatch(removeUser())

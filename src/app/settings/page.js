@@ -3,13 +3,14 @@
 import Head from "next/head"
 import Nav from "../components/Nav"
 import { Urbanist } from 'next/font/google';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import InputText from "../components/sign-up/InputText";
 import Button from "../components/Button";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import axios from "axios";
+import { removeUser, addUser } from '@/store/UserSlice';
 
 const urbanist = Urbanist({
   subsets: ['latin'],
@@ -17,6 +18,7 @@ const urbanist = Urbanist({
   display: 'swap',
 })
 function Page() {
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
   const logged = useSelector((state) => state.user.logged)
   const user = useSelector((state) => state.user)
@@ -25,13 +27,30 @@ function Page() {
     email: "",
     name: "",
   })
-  // useEffect(() => {
-  //   setFormValue({
-  //     username: user.username,
-  //     email: user.email,
-  //     name: user.name
-  //   })
-  // }, [user])
+  const GetUser = async (id) => {
+    axios.post("/api/get-user", { id: id })
+      .then((res) => {
+        const userData = res.data.user
+        console.log(userData);
+        setFormValue({
+          username: "",
+          email: "",
+          name: "",
+        })
+        dispatch(addUser({
+          username: userData.username,
+          email: userData.email,
+          name: userData.name,
+          _id: userData._id
+        }))
+        return
+      })
+      .catch((err) => {
+        alert(err?.response?.data?.message)
+        dispatch(removeUser())
+        console.log(err);
+      })
+  }
   const onChangeInputTextHandler = (e) => {
     const { value, name } = e.target
     setFormValue({ ...formValue, [name]: value })
@@ -58,11 +77,11 @@ function Page() {
         username: formValue.username,
         email: formValue.email,
         name: formValue.name,
-        id:user._id
+        id: user._id
       })
         .then(
           (res) => {
-            toast.success('Successfully Signed Up', {
+            toast.success('Successfully Updated', {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -72,6 +91,8 @@ function Page() {
               progress: undefined,
               theme: "colored",
             });
+            const id = user._id
+            GetUser(id);
             setLoading(false)
             return
           }
